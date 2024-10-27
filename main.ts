@@ -110,18 +110,28 @@ export default class LatexTruthTableGeneratorPlugin extends Plugin {
 		};
 	
 		function processExpression(expression: string): string {
-			while (true) {
-				const implicationIndex = expression.lastIndexOf("\\to");
-				if (implicationIndex === -1) {
-					return expression;
+			const implementsSymbols = [
+				"\\to",
+				"\\rightarrow",
+				"\\Rightarrow"
+			];
+
+			implementsSymbols.forEach(element => {
+				while (true) {
+					const implicationIndex = expression.lastIndexOf(element);
+					if (implicationIndex === -1) {
+						break;
+					}
+					
+					// Otherwise, split the expression into left and right parts around the last "→"
+					const left = expression.slice(0, implicationIndex).trim();
+					const right = expression.slice(implicationIndex + element.length).trim();
+					
+					expression = negateLeftSide(left, right);
 				}
-				
-				// Otherwise, split the expression into left and right parts around the last "→"
-				const left = expression.slice(0, implicationIndex).trim();
-				const right = expression.slice(implicationIndex + 3).trim();
-				
-				expression = negateLeftSide(left, right);
-			}
+			});
+
+			return expression;
 		}
 	
 		// Start processing the entire expression
