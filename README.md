@@ -14,11 +14,11 @@ This plugin enables the quick generation of truth tables for logical expressions
 
 ### Supported Symbols
 The plugin supports the following logical symbols:
-  `\vee`, `\lor` — Logical OR
-  `\wedge`, `\land` — Logical AND
-  `{`, `}`, `(`, `)` — Grouping symbols
-  `\overline`, `\neg` — Logical NOT
-  `True`, `T`, `true`, `1` — Logical true values
-  `False`, `F`, `false`, `0` — Logical false values
-  `\to`, `\rightarrow`, `\Rightarrow` — Logical implication (if-then)
-  `a`, `b`, ... — Variables from a - z
+ - `\vee`, `\lor` — Logical OR
+ - `\wedge`, `\land` — Logical AND
+ - `{`, `}`, `(`, `)` — Grouping symbols
+ - `\overline`, `\neg` — Logical NOT
+ - `True`, `T`, `true`, `1` — Logical true values
+ - `False`, `F`, `false`, `0` — Logical false values
+ - `\to`, `\rightarrow`, `\Rightarrow` — Logical implication (if-then)
+ - `a`, `b`, ... — Variables from a - z
